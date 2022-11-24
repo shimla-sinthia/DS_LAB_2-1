@@ -1,0 +1,23 @@
+//Bismillah Hir Rehmanir Rahim
+//Allah knows best
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string str[6] = {"a", "b", "c", "d", "e", "f"};
+    string new_str[7];    //making new array on size = previse size + 1
+
+    for(int i = 0; i < 4; i++)   // 5 - th index means starting from 0 it will be 4-th index
+    {
+        new_str[i] = str[i];     // coping 0 to 3 elements to new_str
+    }
+
+    new_str[4] = "karim";     // inserting 99 to the positon 4 means 5th position
+
+    for(int i = 4; i < 6; i++)  // coping all the elemnts left in the str to the new_str and their position will be +1 index in new_str
+    {
+        new_str[i + 1] = str[i]; // because of one element  inserted in the new_str , so the left elements location in new_str will be increased by 1
+    }
+    return 0;
+
+}
