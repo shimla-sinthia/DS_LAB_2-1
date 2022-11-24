@@ -1,0 +1,22 @@
+//Bismillah Hir Rehmanir Rahim
+//Allah knows best
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int mn = 1e9;
+    int n;
+    cin >> n;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+    for(int i = 0; i < n; i++)
+    {
+        if(arr[i] < mn)
+        mn = arr[i];
+    }
+    cout << mn << endl;
+}
