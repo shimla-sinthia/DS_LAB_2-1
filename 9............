@@ -1,0 +1,44 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+        // n x n matrix is given
+        int n;
+        cin >> n;
+        // take input the given matrix
+        int a[n][n];
+        for(int i = 0; i < n; i++) {
+                for(int j = 0; j < n; j++) {
+                        cin >> a[i][j];
+                }
+        }
+
+        // len = size of 1D array
+        int len = n * (n + 1) / 2;
+        // b is our 1D array and startId is our starting index of every row
+        int b[len], startId[n];
+
+        int index = 0;
+        for(int i = 0; i < n; i++) {
+                startId[i] = index;
+                for(int j = 0; j < i + 1; j++) {
+                        b[index] = a[i][j];
+                        index++;
+                }
+        }
+        
+        // printing the new created 1D array
+        for(int i = 0; i < len; i++) {
+                cout << b[i] << ' ';
+        }
+        cout << endl;
+
+        // Now locating A32 element
+        // A32 means A21 , as it is 0 based code
+
+        int suru = startId[2];
+        int location = suru + 1;
+        cout << location << endl;
+        cout << b[location] << endl;
+        return 0;
+}
