@@ -1,0 +1,41 @@
+//Bismillah Hir Rehmanir Rahim
+//Allah knows best
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin >> n;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+
+    for(int i = 0; i < n - 1; i++)
+    {
+        for(int j = 0; j < n - i - 1; j++)
+        {
+            if(arr[j] > arr[j + 1])
+            swap(arr[j], arr[j + 1]);
+        }
+    }
+
+    int l = 0, h = n - 1, mid, ans = -1;
+
+    while(l <= h)
+    {
+        mid = (l + h)/2;
+        if(arr[mid] <= 77)
+        {
+            ans = mid;
+            l = mid + 1;
+        }
+        else h = mid - 1;
+    }
+    if(ans == -1)
+    cout << "77 is not found" << endl;
+    else cout << ans + 1 << endl;
+
+    return 0;
+}
