@@ -1,0 +1,86 @@
+//Bismillah Hir Rahmanir Rahim
+#include <bits/stdc++.h>
+using namespace std;
+struct Node{
+    int data;
+    Node *next;
+};
+Node *head, *head2;
+Node *createnode(int val)
+{
+    Node *temp = new Node();
+    temp -> data = val;
+    temp -> next = NULL;
+    return temp;
+}
+
+void insertlast(int val)
+{
+    Node *temp = createnode(val);
+    if(head == NULL)
+    {
+        head = temp;
+        return;
+    }
+    Node *cur = head;
+    while(cur -> next != NULL)
+    {
+        cur = cur ->next;
+    }
+    cur -> next = temp;
+}
+void insertlast2(int val)
+{
+    Node *temp = createnode(val);
+    if(head2 == NULL)
+    {
+        head2 = temp;
+        return;
+    }
+    Node *cur = head2;
+    while(cur -> next != NULL)
+    {
+        cur = cur ->next;
+    }
+    cur -> next = temp;
+}
+void printlist()
+{
+    Node *cur = head;
+    while(cur -> next != NULL)
+    {
+        cout << cur-> data << " ";
+        cur = cur ->next;
+    }
+    cout << cur -> data << endl;
+}
+void marge()
+{
+    Node *cur = head2;
+    while(cur -> next != NULL)
+    {
+        insertlast(cur -> data);
+        cur = cur -> next;
+    }
+    insertlast(cur -> data);
+}
+int main()
+{
+    int n;
+    cin >> n;
+    for(int i = 0; i < n; i++)
+    {
+        int val;
+        cin >> val;
+        insertlast(val);
+    }
+    for(int i = 0; i < n; i++)
+    {
+        int val;
+        cin >> val;
+        insertlast2(val);
+    }
+    marge();
+    printlist();
+    return 0;
+}
